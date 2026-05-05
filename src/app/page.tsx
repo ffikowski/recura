@@ -101,6 +101,24 @@ const metrics = [
   { value: "100%", label: "Fokus auf reale operative Einsetzbarkeit" },
 ];
 
+const contactOptions = [
+  {
+    label: "Erstgespräch buchen",
+    detail: "Platzhalter für Buchungslink",
+    href: "#",
+  },
+  {
+    label: "hello@recura-placeholder.de",
+    detail: "E-Mail",
+    href: "mailto:hello@recura-placeholder.de",
+  },
+  {
+    label: "Kontaktformular",
+    detail: "Antwortkanal wird später produktiv angebunden",
+    href: "#kontakt",
+  },
+];
+
 export default function Home() {
   return (
     <main className="pb-20">
@@ -201,9 +219,6 @@ export default function Home() {
                 </div>
 
                 <div className="rounded-[2.1rem] border border-[var(--line)] bg-white/88 p-4 shadow-[0_24px_60px_rgba(22,44,56,0.1)] backdrop-blur">
-                </div>
-
-                <div className="rounded-[2.1rem] border border-[var(--line)] bg-white/88 p-4 shadow-[0_24px_60px_rgba(22,44,56,0.1)] backdrop-blur">
                   <div className="overflow-hidden rounded-[1.7rem] border border-[var(--line)]">
                     <Image
                       src="/recura-assets/hero-mockup.jpg"
@@ -280,6 +295,17 @@ export default function Home() {
               <p className="mt-5 text-lg leading-8 text-[var(--muted-foreground)]">
                 Besonders dort, wo viele manuelle Übergaben, Suchaufwand oder Standardkommunikation entstehen, kann eine saubere Automatisierung früh Mehrwert liefern.
               </p>
+              <div className="mt-8 grid gap-4 sm:grid-cols-3">
+                {[
+                  "Workflow-Automatisierung",
+                  "Interne KI-Assistenten",
+                  "Kommunikationsunterstützung",
+                ].map((item) => (
+                  <div key={item} className="rounded-[1.35rem] border border-[var(--line)] bg-[var(--card-strong)] px-4 py-4 text-sm font-medium text-[var(--foreground)]">
+                    {item}
+                  </div>
+                ))}
+              </div>
               <div className="mt-8 rounded-[1.6rem] border border-[var(--line)] bg-[var(--card-strong)] p-5 text-sm leading-7 text-[var(--muted-foreground)]">
                 Mit Recura bleiben Prozesse nachvollziehbar. Kritische Punkte erhalten klare Freigaben, während Routinen im Hintergrund effizienter laufen.
               </div>
@@ -405,26 +431,25 @@ export default function Home() {
               </p>
 
               <div className="mt-8 space-y-4">
-                <a
-                  href="#"
-                  className="flex items-center justify-between rounded-[1.4rem] bg-[var(--accent)] px-5 py-4 text-white transition hover:bg-[var(--accent-strong)]"
-                >
-                  <span>
-                    <span className="block text-sm opacity-80">Platzhalter</span>
-                    <span className="block text-base font-medium">Erstgespräch buchen</span>
-                  </span>
-                  <span aria-hidden>↗</span>
-                </a>
-                <a
-                  href="mailto:hello@recura-placeholder.de"
-                  className="flex items-center justify-between rounded-[1.4rem] border border-[var(--line)] px-5 py-4 text-[var(--foreground)] transition hover:border-[var(--accent)]"
-                >
-                  <span>
-                    <span className="block text-sm text-[var(--muted-foreground)]">E-Mail</span>
-                    <span className="block text-base font-medium">hello@recura-placeholder.de</span>
-                  </span>
-                  <span aria-hidden>→</span>
-                </a>
+                {contactOptions.map((option, index) => (
+                  <a
+                    key={option.label}
+                    href={option.href}
+                    className={`flex items-center justify-between rounded-[1.4rem] px-5 py-4 transition ${
+                      index === 0
+                        ? "bg-[var(--accent)] text-white hover:bg-[var(--accent-strong)]"
+                        : "border border-[var(--line)] text-[var(--foreground)] hover:border-[var(--accent)]"
+                    }`}
+                  >
+                    <span>
+                      <span className={`block text-sm ${index === 0 ? "opacity-80" : "text-[var(--muted-foreground)]"}`}>
+                        {option.detail}
+                      </span>
+                      <span className="block text-base font-medium">{option.label}</span>
+                    </span>
+                    <span aria-hidden>{index === 0 ? "↗" : "→"}</span>
+                  </a>
+                ))}
               </div>
             </div>
 
