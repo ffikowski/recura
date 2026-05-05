@@ -159,13 +159,13 @@ export default function Home() {
 
                 <nav className="flex flex-wrap items-center gap-5 text-sm text-[var(--muted-foreground)]">
                   {navigation.map((item) => (
-                    <a key={item.href} href={item.href} className="transition hover:text-[var(--foreground)]">
+                    <a key={item.href} href={item.href} className="transition hover:text-[var(--foreground)] hover:opacity-100">
                       {item.label}
                     </a>
                   ))}
                   <a
                     href="#kontakt"
-                    className="rounded-full bg-[var(--accent)] px-5 py-3 font-medium text-white transition hover:bg-[var(--accent-strong)]"
+                    className="rounded-full bg-[var(--accent)] px-5 py-3 font-medium text-white shadow-[0_14px_28px_rgba(47,111,115,0.24)] transition hover:bg-[var(--accent-strong)]"
                   >
                     Erstgespräch vereinbaren
                   </a>
@@ -177,17 +177,17 @@ export default function Home() {
                   <div className="inline-flex items-center rounded-full border border-[var(--line)] bg-white/85 px-4 py-2 text-sm text-[var(--muted-foreground)] backdrop-blur">
                     Standort Deutschland · pragmatische KI-Systeme für operative Teams
                   </div>
-                  <h1 className="mt-6 max-w-3xl text-4xl font-semibold leading-[1.02] tracking-[-0.05em] text-[var(--foreground)] sm:text-5xl lg:text-[4.25rem]">
+                  <h1 className="mt-6 max-w-3xl text-4xl font-semibold leading-[0.98] tracking-[-0.06em] text-[var(--hero-title)] sm:text-5xl lg:text-[4.6rem]">
                     Wir automatisieren Prozesse dort, wo Unternehmen im Alltag Zeit verlieren.
                   </h1>
-                  <p className="mt-6 max-w-2xl text-lg leading-8 text-[var(--muted-foreground)] sm:text-xl">
+                  <p className="mt-6 max-w-2xl text-lg leading-8 text-[var(--muted-foreground)] sm:text-[1.24rem]">
                     Recura entwickelt umsetzbare KI- und Automatisierungslösungen für Unternehmen, die operative Abläufe vereinfachen, Wissen nutzbar machen und Kommunikation intelligent unterstützen.
                   </p>
 
                   <div className="mt-8 flex flex-col gap-4 sm:flex-row">
                     <a
                       href="#kontakt"
-                      className="rounded-full bg-[var(--accent)] px-6 py-4 text-center text-base font-medium text-white transition hover:bg-[var(--accent-strong)]"
+                      className="rounded-full bg-[var(--accent)] px-6 py-4 text-center text-base font-medium text-white shadow-[0_16px_32px_rgba(47,111,115,0.24)] transition hover:bg-[var(--accent-strong)]"
                     >
                       Erstgespräch vereinbaren
                     </a>
@@ -210,7 +210,7 @@ export default function Home() {
 
                   <div className="mt-8 grid gap-4 rounded-[1.8rem] border border-[var(--line)] bg-white/80 p-5 backdrop-blur sm:grid-cols-3">
                     {metrics.map((metric) => (
-                      <div key={metric.label}>
+                      <div key={metric.label} className="rounded-[1.2rem] bg-white/75 p-4">
                         <p className="text-3xl font-semibold tracking-[-0.04em] text-[var(--foreground)]">{metric.value}</p>
                         <p className="mt-2 text-sm leading-6 text-[var(--muted-foreground)]">{metric.label}</p>
                       </div>
@@ -218,7 +218,7 @@ export default function Home() {
                   </div>
                 </div>
 
-                <div className="rounded-[2.1rem] border border-[var(--line)] bg-white/88 p-4 shadow-[0_24px_60px_rgba(22,44,56,0.1)] backdrop-blur">
+                <div className="rounded-[2.1rem] border border-[var(--line)] bg-white/88 p-4 shadow-[0_28px_70px_rgba(22,44,56,0.12)] backdrop-blur">
                   <div className="overflow-hidden rounded-[1.7rem] border border-[var(--line)]">
                     <Image
                       src="/recura-assets/hero-mockup.jpg"
@@ -353,9 +353,13 @@ export default function Home() {
               {team.map((member) => (
                 <article
                   key={member.name}
-                  className="rounded-[1.8rem] border border-[var(--line)] bg-[var(--card)] p-5 shadow-[0_14px_40px_rgba(22,44,56,0.05)]"
+                  className="rounded-[1.8rem] border border-[var(--line)] bg-[var(--card)] p-5 shadow-[0_14px_40px_rgba(22,44,56,0.05)] transition hover:-translate-y-1 hover:shadow-[0_18px_46px_rgba(22,44,56,0.08)]"
                 >
-                  <div className="h-36 rounded-[1.4rem] bg-[linear-gradient(135deg,_rgba(47,111,115,0.18),_rgba(236,231,223,0.76))]" />
+                  <div className="flex h-36 items-end rounded-[1.4rem] bg-[linear-gradient(135deg,_rgba(47,111,115,0.18),_rgba(236,231,223,0.76))] p-4">
+                    <div className="rounded-full bg-white/80 px-3 py-1 text-xs uppercase tracking-[0.16em] text-[var(--accent)] backdrop-blur">
+                      Team
+                    </div>
+                  </div>
                   <h3 className="mt-5 text-xl font-semibold tracking-[-0.03em] text-[var(--foreground)]">{member.name}</h3>
                   <p className="mt-2 text-sm font-medium text-[var(--accent)]">{member.role}</p>
                   <p className="mt-4 text-sm leading-7 text-[var(--muted-foreground)]">{member.text}</p>
@@ -453,7 +457,7 @@ export default function Home() {
               </div>
             </div>
 
-            <form className="grid gap-4 rounded-[1.8rem] border border-[var(--line)] bg-[var(--card-strong)] p-5 sm:grid-cols-2">
+            <form className="grid gap-4 rounded-[1.8rem] border border-[var(--line)] bg-[var(--card-strong)] p-5 shadow-[0_16px_34px_rgba(22,44,56,0.04)] sm:grid-cols-2">
               <label className="grid gap-2 text-sm text-[var(--muted-foreground)]">
                 Name
                 <input
@@ -488,7 +492,7 @@ export default function Home() {
                 </p>
                 <button
                   type="button"
-                  className="rounded-full bg-[var(--foreground)] px-6 py-3 text-sm font-medium text-white transition hover:opacity-92"
+                  className="rounded-full bg-[var(--foreground)] px-6 py-3 text-sm font-medium text-white shadow-[0_14px_26px_rgba(15,34,48,0.18)] transition hover:opacity-92"
                 >
                   Anfrage senden
                 </button>

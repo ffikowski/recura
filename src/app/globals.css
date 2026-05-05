@@ -11,6 +11,7 @@
   --accent-strong: #214f53;
   --accent-soft: #d7e7e5;
   --sand: #ece7df;
+  --hero-title: #102633;
   --shadow: 0 30px 80px rgba(22, 44, 56, 0.08);
 }
 
@@ -34,6 +35,12 @@ body {
   background: radial-gradient(circle at top, #fbfcfb 0%, var(--background) 52%, #eef3f1 100%);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+input,
+textarea,
+button {
+  font: inherit;
 }
 
 a {
