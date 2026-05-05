@@ -95,6 +95,12 @@ const trustPoints = [
   "Technik, Prozesse und Teams zusammengedacht",
 ];
 
+const metrics = [
+  { value: "3", label: "klare Lösungsfelder im Erstauftritt" },
+  { value: "5", label: "Schritte vom Erstgespräch bis zum Go-live" },
+  { value: "100%", label: "Fokus auf reale operative Einsetzbarkeit" },
+];
+
 export default function Home() {
   return (
     <main className="pb-20">
@@ -183,6 +189,18 @@ export default function Home() {
                       </div>
                     ))}
                   </div>
+
+                  <div className="mt-8 grid gap-4 rounded-[1.8rem] border border-[var(--line)] bg-white/80 p-5 backdrop-blur sm:grid-cols-3">
+                    {metrics.map((metric) => (
+                      <div key={metric.label}>
+                        <p className="text-3xl font-semibold tracking-[-0.04em] text-[var(--foreground)]">{metric.value}</p>
+                        <p className="mt-2 text-sm leading-6 text-[var(--muted-foreground)]">{metric.label}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="rounded-[2.1rem] border border-[var(--line)] bg-white/88 p-4 shadow-[0_24px_60px_rgba(22,44,56,0.1)] backdrop-blur">
                 </div>
 
                 <div className="rounded-[2.1rem] border border-[var(--line)] bg-white/88 p-4 shadow-[0_24px_60px_rgba(22,44,56,0.1)] backdrop-blur">
@@ -218,13 +236,17 @@ export default function Home() {
             {services.map((service, index) => (
               <article
                 key={service.title}
-                className="rounded-[2.1rem] border border-[var(--line)] bg-[var(--card)] p-6 shadow-[0_18px_50px_rgba(22,44,56,0.05)]"
+                className="rounded-[2.1rem] border border-[var(--line)] bg-[var(--card)] p-6 shadow-[0_18px_50px_rgba(22,44,56,0.05)] transition hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(22,44,56,0.08)]"
               >
                 <div className="flex items-center justify-between">
                   <span className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-[var(--accent-soft)] text-sm font-semibold text-[var(--accent-strong)]">
                     0{index + 1}
                   </span>
                   <span className="text-xs uppercase tracking-[0.22em] text-[var(--muted-foreground)]">{service.eyebrow}</span>
+                </div>
+                <div className="mt-5 flex gap-2">
+                  <span className="h-2.5 w-16 rounded-full bg-[var(--accent)]" />
+                  <span className="h-2.5 w-8 rounded-full bg-[var(--accent-soft)]" />
                 </div>
                 <h3 className="mt-6 text-[1.65rem] font-semibold leading-tight tracking-[-0.03em] text-[var(--foreground)]">
                   {service.title}
@@ -325,6 +347,13 @@ export default function Home() {
               className="h-auto w-full object-cover"
             />
           </div>
+
+          <div className="mt-8 rounded-[1.85rem] border border-[var(--line)] bg-[var(--card)] p-6 shadow-[0_16px_36px_rgba(22,44,56,0.04)]">
+            <p className="text-sm uppercase tracking-[0.22em] text-[var(--accent)]">Unser Anspruch</p>
+            <p className="mt-4 max-w-4xl text-lg leading-8 text-[var(--muted-foreground)]">
+              Technologie ist für uns kein Selbstzweck. Gute Automatisierung reduziert operative Last, bleibt für Teams nachvollziehbar und lässt sich sauber in bestehende Arbeitsweisen integrieren.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -353,7 +382,7 @@ export default function Home() {
 
           <div className="mt-10 grid gap-4 lg:grid-cols-5">
             {processSteps.map((item) => (
-              <article key={item.step} className="rounded-[1.55rem] border border-[var(--line)] bg-white/90 p-5 backdrop-blur">
+              <article key={item.step} className="rounded-[1.55rem] border border-[var(--line)] bg-white/90 p-5 backdrop-blur transition hover:-translate-y-1">
                 <p className="text-sm font-semibold text-[var(--accent)]">{item.step}</p>
                 <h3 className="mt-3 text-xl font-semibold tracking-[-0.03em] text-[var(--foreground)]">{item.title}</h3>
                 <p className="mt-3 text-sm leading-7 text-[var(--muted-foreground)]">{item.text}</p>
@@ -453,6 +482,9 @@ export default function Home() {
             </p>
           </div>
           <div className="flex flex-wrap gap-5 text-sm text-[var(--muted-foreground)]">
+            <a href="#leistungen" className="transition hover:text-[var(--foreground)]">
+              Leistungen
+            </a>
             <a href="#kontakt" className="transition hover:text-[var(--foreground)]">
               Kontakt
             </a>
