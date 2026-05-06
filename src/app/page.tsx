@@ -95,12 +95,6 @@ const trustPoints = [
   "Technik, Prozesse und Teams zusammengedacht",
 ];
 
-const metrics = [
-  { value: "3", label: "klare Lösungsfelder im Erstauftritt" },
-  { value: "5", label: "Schritte vom Erstgespräch bis zum Go-live" },
-  { value: "100%", label: "Fokus auf reale operative Einsetzbarkeit" },
-];
-
 const contactOptions = [
   {
     label: "Erstgespräch buchen",
@@ -124,36 +118,30 @@ export default function Home() {
     <main className="pb-20">
       <section className="relative overflow-hidden px-5 pt-5 sm:px-8 lg:px-10">
         <div className="mx-auto max-w-7xl rounded-[2.4rem] border border-[var(--line)] bg-[var(--card)] shadow-[var(--shadow)]">
-          <div className="relative overflow-hidden rounded-[2.4rem] px-6 pb-16 pt-5 sm:px-8 lg:px-10">
-            <div className="absolute inset-0">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(47,111,115,0.22),_transparent_38%),radial-gradient(circle_at_bottom_right,_rgba(236,231,223,0.88),_transparent_40%),linear-gradient(135deg,_rgba(255,255,255,0.98),_rgba(243,247,246,0.96))]" />
-              <div className="absolute inset-y-0 right-0 hidden w-[44%] overflow-hidden lg:block">
-                <Image
-                  src="/recura-assets/background-reference.jpg"
-                  alt="Abstrakte Hintergrundszene für Recura"
-                  fill
-                  className="object-cover opacity-26"
-                  priority
-                />
-                <div className="absolute inset-0 bg-[linear-gradient(90deg,_rgba(255,255,255,0.1),_rgba(245,247,246,0.8))]" />
-              </div>
+          <div className="relative overflow-hidden rounded-[2.4rem] px-6 pb-18 pt-5 sm:px-8 lg:px-10">
+            <div className="absolute inset-0 bg-[linear-gradient(180deg,_rgba(255,255,255,0.98),_rgba(248,250,249,0.98))]" />
+            <div className="absolute inset-x-0 bottom-0 h-[78%] opacity-95">
+              <Image
+                src="/recura-assets/background-reference.jpg"
+                alt="Abstrakte Prozessvisualisierung im Hintergrund"
+                fill
+                className="object-cover object-bottom"
+                priority
+              />
             </div>
+            <div className="absolute inset-x-0 bottom-0 h-[72%] bg-[linear-gradient(180deg,_rgba(255,255,255,0.96),_rgba(255,255,255,0.12)_28%,_rgba(255,255,255,0)_44%)]" />
 
             <div className="relative z-10">
-              <header className="flex flex-col gap-5 border-b border-[var(--line)] pb-6 lg:flex-row lg:items-center lg:justify-between">
+              <header className="flex flex-col gap-5 rounded-[1.8rem] border border-[rgba(15,34,48,0.06)] bg-white/84 px-5 py-4 shadow-[0_10px_24px_rgba(15,34,48,0.04)] backdrop-blur lg:flex-row lg:items-center lg:justify-between">
                 <div className="flex items-center gap-4">
-                  <div className="flex h-14 w-14 items-center justify-center overflow-hidden rounded-[1.2rem] border border-[var(--line)] bg-white shadow-[0_10px_24px_rgba(15,34,48,0.06)]">
+                  <div className="flex h-12 items-center overflow-hidden rounded-[1rem] bg-white">
                     <Image
                       src="/recura-assets/recura-logo.jpg"
                       alt="Recura Logo"
-                      width={56}
-                      height={56}
-                      className="h-full w-full object-cover"
+                      width={160}
+                      height={48}
+                      className="h-12 w-auto object-contain"
                     />
-                  </div>
-                  <div>
-                    <p className="text-xs uppercase tracking-[0.24em] text-[var(--muted-foreground)]">Recura</p>
-                    <p className="mt-1 text-sm text-[var(--muted-foreground)]">KI-Automatisierung für den Mittelstand</p>
                   </div>
                 </div>
 
@@ -165,68 +153,58 @@ export default function Home() {
                   ))}
                   <a
                     href="#kontakt"
-                    className="rounded-full bg-[var(--accent)] px-5 py-3 font-medium text-white shadow-[0_14px_28px_rgba(47,111,115,0.24)] transition hover:bg-[var(--accent-strong)]"
+                    className="rounded-[0.95rem] bg-[var(--accent)] px-5 py-3 font-medium text-white shadow-[0_14px_28px_rgba(47,111,115,0.24)] transition hover:bg-[var(--accent-strong)]"
                   >
-                    Erstgespräch vereinbaren
+                    Erstgespräch vereinbaren →
                   </a>
                 </nav>
               </header>
 
-              <div className="grid gap-12 pt-10 lg:grid-cols-[1.08fr_0.92fr] lg:items-center lg:pt-14">
-                <div>
-                  <div className="inline-flex items-center rounded-full border border-[var(--line)] bg-white/85 px-4 py-2 text-sm text-[var(--muted-foreground)] backdrop-blur">
-                    Standort Deutschland · pragmatische KI-Systeme für operative Teams
-                  </div>
-                  <h1 className="mt-6 max-w-3xl text-4xl font-semibold leading-[0.98] tracking-[-0.06em] text-[var(--hero-title)] sm:text-5xl lg:text-[4.6rem]">
-                    Wir automatisieren Prozesse dort, wo Unternehmen im Alltag Zeit verlieren.
-                  </h1>
-                  <p className="mt-6 max-w-2xl text-lg leading-8 text-[var(--muted-foreground)] sm:text-[1.24rem]">
-                    Recura entwickelt umsetzbare KI- und Automatisierungslösungen für Unternehmen, die operative Abläufe vereinfachen, Wissen nutzbar machen und Kommunikation intelligent unterstützen.
-                  </p>
+              <div className="relative mx-auto flex min-h-[760px] max-w-4xl flex-col items-center justify-center px-4 pb-8 pt-18 text-center sm:pt-24 lg:min-h-[860px]">
+                <p className="text-sm font-medium uppercase tracking-[0.32em] text-[var(--accent)]">
+                  RECURA PROCESS AUTOMATION
+                </p>
+                <h1 className="mt-7 max-w-4xl text-5xl font-semibold leading-[0.98] tracking-[-0.07em] text-[var(--hero-title)] sm:text-6xl lg:text-[5.4rem]">
+                  KI-gestützte Automatisierung für Büroprozesse im Mittelstand.
+                </h1>
+                <p className="mt-7 max-w-2xl text-lg leading-8 text-[var(--muted-foreground)] sm:text-[1.24rem]">
+                  Wir analysieren, automatisieren und optimieren administrative Prozesse, pragmatisch, sicher und messbar.
+                </p>
 
-                  <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-                    <a
-                      href="#kontakt"
-                      className="rounded-full bg-[var(--accent)] px-6 py-4 text-center text-base font-medium text-white shadow-[0_16px_32px_rgba(47,111,115,0.24)] transition hover:bg-[var(--accent-strong)]"
-                    >
-                      Erstgespräch vereinbaren
-                    </a>
-                    <a
-                      href="#leistungen"
-                      className="rounded-full border border-[var(--line)] bg-white px-6 py-4 text-center text-base font-medium text-[var(--foreground)] transition hover:border-[var(--accent)] hover:text-[var(--accent)]"
-                    >
-                      Leistungen ansehen
-                    </a>
-                  </div>
-
-                  <div className="mt-10 grid gap-4 sm:grid-cols-3">
-                    {trustPoints.map((point) => (
-                      <div key={point} className="rounded-[1.55rem] border border-[var(--line)] bg-white/85 p-4 backdrop-blur">
-                        <p className="text-sm font-semibold text-[var(--foreground)]">{point}</p>
-                        <div className="mt-4 h-1.5 w-12 rounded-full bg-[var(--accent-soft)]" />
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className="mt-8 grid gap-4 rounded-[1.8rem] border border-[var(--line)] bg-white/80 p-5 backdrop-blur sm:grid-cols-3">
-                    {metrics.map((metric) => (
-                      <div key={metric.label} className="rounded-[1.2rem] bg-white/75 p-4">
-                        <p className="text-3xl font-semibold tracking-[-0.04em] text-[var(--foreground)]">{metric.value}</p>
-                        <p className="mt-2 text-sm leading-6 text-[var(--muted-foreground)]">{metric.label}</p>
-                      </div>
-                    ))}
-                  </div>
+                <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-center">
+                  <a
+                    href="#kontakt"
+                    className="rounded-[1rem] bg-[var(--accent)] px-7 py-4 text-center text-base font-medium text-white shadow-[0_16px_32px_rgba(47,111,115,0.24)] transition hover:bg-[var(--accent-strong)]"
+                  >
+                    Erstgespräch vereinbaren →
+                  </a>
+                  <a
+                    href="#leistungen"
+                    className="rounded-[1rem] border border-[rgba(15,34,48,0.18)] bg-white/92 px-7 py-4 text-center text-base font-medium text-[var(--foreground)] transition hover:border-[var(--accent)] hover:text-[var(--accent)]"
+                  >
+                    Leistungen ansehen →
+                  </a>
                 </div>
 
-                <div className="rounded-[2.1rem] border border-[var(--line)] bg-white/88 p-4 shadow-[0_28px_70px_rgba(22,44,56,0.12)] backdrop-blur">
-                  <div className="overflow-hidden rounded-[1.7rem] border border-[var(--line)]">
-                    <Image
-                      src="/recura-assets/hero-mockup.jpg"
-                      alt="Recura Hero Mockup"
-                      width={1280}
-                      height={960}
-                      className="h-auto w-full object-cover"
-                    />
+                <div className="mt-8 inline-flex items-center rounded-full border border-[rgba(15,34,48,0.08)] bg-white/88 px-4 py-2 text-sm text-[var(--muted-foreground)] shadow-[0_10px_22px_rgba(15,34,48,0.04)] backdrop-blur">
+                  Düsseldorf / Mönchengladbach / NRW
+                </div>
+
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 hidden h-[58%] lg:block" aria-hidden>
+                  <div className="absolute left-[6%] top-[14%] flex h-16 w-16 items-center justify-center rounded-full border border-white/80 bg-[rgba(47,111,115,0.92)] text-white shadow-[0_18px_38px_rgba(47,111,115,0.22)]">
+                    ▥
+                  </div>
+                  <div className="absolute left-[18%] bottom-[14%] flex h-16 w-16 items-center justify-center rounded-full border border-white/80 bg-[rgba(18,49,86,0.96)] text-white shadow-[0_18px_38px_rgba(18,49,86,0.2)]">
+                    ▤
+                  </div>
+                  <div className="absolute right-[20%] top-[24%] flex h-14 w-14 items-center justify-center rounded-full border border-white/80 bg-white/95 text-[var(--accent)] shadow-[0_16px_32px_rgba(15,34,48,0.12)]">
+                    ○
+                  </div>
+                  <div className="absolute right-[11%] top-[47%] flex h-16 w-16 items-center justify-center rounded-full border border-white/80 bg-[rgba(18,49,86,0.96)] text-white shadow-[0_18px_38px_rgba(18,49,86,0.2)]">
+                    ▤
+                  </div>
+                  <div className="absolute right-[16%] bottom-[8%] flex h-16 w-16 items-center justify-center rounded-full border border-white/80 bg-[rgba(196,229,218,0.95)] text-[var(--accent)] shadow-[0_18px_38px_rgba(47,111,115,0.12)]">
+                    ⚙
                   </div>
                 </div>
               </div>
