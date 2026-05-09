@@ -89,12 +89,6 @@ const processSteps = [
   },
 ];
 
-const trustPoints = [
-  "Praxisnah statt experimentell",
-  "Saubere Freigaben und Verantwortlichkeiten",
-  "Technik, Prozesse und Teams zusammengedacht",
-];
-
 const contactOptions = [
   {
     label: "Erstgespräch buchen",
@@ -153,7 +147,7 @@ export default function Home() {
                   ))}
                   <a
                     href="#kontakt"
-                    className="rounded-[0.95rem] bg-[var(--accent)] px-5 py-3 font-medium text-white shadow-[0_14px_28px_rgba(47,111,115,0.24)] transition hover:bg-[var(--accent-strong)]"
+                    className="rounded-[0.95rem] bg-[var(--accent)] px-5 py-3 font-medium text-white! shadow-[0_14px_28px_rgba(47,111,115,0.24)] transition hover:bg-[var(--accent-strong)] hover:text-white!"
                   >
                     Erstgespräch vereinbaren →
                   </a>
@@ -174,7 +168,7 @@ export default function Home() {
                 <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-center">
                   <a
                     href="#kontakt"
-                    className="rounded-[1rem] bg-[var(--accent)] px-7 py-4 text-center text-base font-medium text-white shadow-[0_16px_32px_rgba(47,111,115,0.24)] transition hover:bg-[var(--accent-strong)]"
+                    className="rounded-[1rem] bg-[var(--accent)] px-7 py-4 text-center text-base font-medium text-white! shadow-[0_16px_32px_rgba(47,111,115,0.24)] transition hover:bg-[var(--accent-strong)] hover:text-white!"
                   >
                     Erstgespräch vereinbaren →
                   </a>
@@ -191,19 +185,19 @@ export default function Home() {
                 </div>
 
                 <div className="pointer-events-none absolute inset-x-0 bottom-0 hidden h-[58%] lg:block" aria-hidden>
-                  <div className="absolute left-[6%] top-[14%] flex h-16 w-16 items-center justify-center rounded-full border border-white/80 bg-[rgba(47,111,115,0.92)] text-white shadow-[0_18px_38px_rgba(47,111,115,0.22)]">
+                  <div className="absolute left-[8%] top-[18%] flex h-15 w-15 items-center justify-center rounded-full border border-white/80 bg-[rgba(47,111,115,0.94)] text-white shadow-[0_18px_38px_rgba(47,111,115,0.22)]">
                     ▥
                   </div>
-                  <div className="absolute left-[18%] bottom-[14%] flex h-16 w-16 items-center justify-center rounded-full border border-white/80 bg-[rgba(18,49,86,0.96)] text-white shadow-[0_18px_38px_rgba(18,49,86,0.2)]">
+                  <div className="absolute left-[22%] bottom-[15%] flex h-15 w-15 items-center justify-center rounded-full border border-white/80 bg-[rgba(18,49,86,0.96)] text-white shadow-[0_18px_38px_rgba(18,49,86,0.2)]">
                     ▤
                   </div>
-                  <div className="absolute right-[20%] top-[24%] flex h-14 w-14 items-center justify-center rounded-full border border-white/80 bg-white/95 text-[var(--accent)] shadow-[0_16px_32px_rgba(15,34,48,0.12)]">
+                  <div className="absolute right-[24%] top-[28%] flex h-13 w-13 items-center justify-center rounded-full border border-white/80 bg-white/96 text-[var(--accent)] shadow-[0_16px_32px_rgba(15,34,48,0.12)]">
                     ○
                   </div>
-                  <div className="absolute right-[11%] top-[47%] flex h-16 w-16 items-center justify-center rounded-full border border-white/80 bg-[rgba(18,49,86,0.96)] text-white shadow-[0_18px_38px_rgba(18,49,86,0.2)]">
+                  <div className="absolute right-[10%] top-[52%] flex h-15 w-15 items-center justify-center rounded-full border border-white/80 bg-[rgba(18,49,86,0.96)] text-white shadow-[0_18px_38px_rgba(18,49,86,0.2)]">
                     ▤
                   </div>
-                  <div className="absolute right-[16%] bottom-[8%] flex h-16 w-16 items-center justify-center rounded-full border border-white/80 bg-[rgba(196,229,218,0.95)] text-[var(--accent)] shadow-[0_18px_38px_rgba(47,111,115,0.12)]">
+                  <div className="absolute right-[18%] bottom-[10%] flex h-15 w-15 items-center justify-center rounded-full border border-white/80 bg-[rgba(196,229,218,0.96)] text-[var(--accent)] shadow-[0_18px_38px_rgba(47,111,115,0.12)]">
                     ⚙
                   </div>
                 </div>
