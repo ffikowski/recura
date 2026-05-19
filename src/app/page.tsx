@@ -1,48 +1,6 @@
 import Image from "next/image";
-import { Lock, ArrowRight, Check, BarChart3, Shield, UserCheck, MapPin, Brain, Sparkles, Settings, Users, Heart, Target } from 'lucide-react';
-
-const navigation = [
-  { label: "Leistungen", href: "#leistungen" },
-  { label: "Use Cases", href: "#use-cases" },
-  { label: "Über uns", href: "#ueber-uns" },
-  { label: "Kontakt", href: "#kontakt" },
-];
-
-const services = [
-  {
-    title: "Microsoft-Workflows & Excel-Automatisierung",
-    eyebrow: "Prozessautomatisierung",
-    text: "Wiederkehrende Arbeitsschritte in Microsoft 365, Excel und internen Tools sauber automatisieren, statt sie Woche für Woche manuell zu wiederholen.",
-    bullets: [
-      "Freigaben, Übergaben und Reporting reduzieren",
-      "Excel-Prozesse stabil in Workflows überführen",
-      "Saubere Dokumentation für operative Teams",
-    ],
-    result: "Weniger manuelle Schritte, weniger Fehler, mehr Verlässlichkeit im Tagesgeschäft.",
-  },
-  {
-    title: "Interne Daten per KI-Assistent nutzbar machen",
-    eyebrow: "Wissenssysteme",
-    text: "Wissen aus Dokumenten, Tabellen und Prozessen so verfügbar machen, dass Teams schneller Antworten bekommen und weniger Suchaufwand haben.",
-    bullets: [
-      "Interne Wissensquellen strukturiert anbinden",
-      "Antworten aus Richtlinien, PDFs und Datenbanken",
-      "Sicherer Zugriff für die richtigen Teams",
-    ],
-    result: "Weniger Reibung im Alltag und schnellere Entscheidungen auf Basis Ihrer vorhandenen Daten.",
-  },
-  {
-    title: "Semi-automatisierte Kommunikation",
-    eyebrow: "Kommunikation",
-    text: "Eingehende Anfragen, E-Mails und Standardkommunikation vorbereiten, strukturieren und an den richtigen Stellen intelligent unterstützen.",
-    bullets: [
-      "Anfragen vorklassifizieren und vorsortieren",
-      "Antwortentwürfe und Vorlagen erzeugen",
-      "Menschliche Freigabe an den kritischen Punkten",
-    ],
-    result: "Mehr Geschwindigkeit im Kundenkontakt, ohne Kontrolle oder Qualität aufzugeben.",
-  },
-];
+import { Lock, ArrowRight, Check, BarChart3, Shield, UserCheck, MapPin, Brain, Sparkles, Settings, Users, Heart, Target, MessageCircle, FileSearch, Lightbulb, Rocket, ShieldCheck } from 'lucide-react';
+import { SiteHeader } from "@/components/site-header";
 
 const founders = [
   {
@@ -76,7 +34,7 @@ const capabilities = [
   { label: 'Strategie & Vertrieb', icon: Users },
 ];
 
-const useCases = [
+const useCases: UseCaseCardProps[] = [
   {
     number: '01',
     title: 'Microsoft-Workflows & Excel-Automatisierung',
@@ -122,33 +80,49 @@ const useCases = [
   },
 ];
 
-const processSteps = [
+const processFlowSteps = [
   {
-    step: "01",
-    title: "Erstgespräch",
-    text: "Wir verstehen Ziele, Engpässe und den konkreten operativen Kontext.",
+    number: '1',
+    title: 'Erstgespräch',
+    description: 'Wir verstehen Ihre Ausgangslage, typische manuelle Aufgaben und die wichtigsten Ziele.',
+    icon: MessageCircle,
+    tone: 'blue',
+    offset: 'high',
   },
   {
-    step: "02",
-    title: "Analyse",
-    text: "Bestehende Abläufe, Datenquellen und mögliche Automatisierungshebel werden gemeinsam geprüft.",
+    number: '2',
+    title: 'Analyse',
+    description: 'Wir analysieren Prozesse, Datenquellen, Systeme und identifizieren sinnvolle Automatisierungspotenziale.',
+    icon: FileSearch,
+    tone: 'teal',
+    offset: 'low',
   },
   {
-    step: "03",
-    title: "Lösungskonzept",
-    text: "Wir definieren eine pragmatische Zielarchitektur mit klaren Prioritäten und realistischem Scope.",
+    number: '3',
+    title: 'Lösungskonzept',
+    description: 'Wir bewerten Nutzen, Aufwand und Risiken und entwickeln eine klare Empfehlung für den besten Startpunkt.',
+    icon: Lightbulb,
+    tone: 'blue',
+    offset: 'mid',
   },
   {
-    step: "04",
-    title: "Umsetzung",
-    text: "Workflows, Assistenten und Schnittstellen werden mit Fokus auf Nutzbarkeit und Robustheit gebaut.",
+    number: '4',
+    title: 'Umsetzung',
+    description: 'Wir bauen eine schlanke Lösung, testen sie mit Ihnen und integrieren sie in Ihre bestehende Systemlandschaft.',
+    icon: Settings,
+    tone: 'teal',
+    offset: 'low',
   },
   {
-    step: "05",
-    title: "Go-live & Verbesserung",
-    text: "Nach dem Start schärfen wir das Setup weiter und entwickeln es entlang der echten Nutzung fort.",
+    number: '5',
+    title: 'Go-live & Verbesserung',
+    description: 'Nach dem Start optimieren wir die Lösung, begleiten die Nutzung und erweitern sie bei Bedarf schrittweise.',
+    icon: Rocket,
+    tone: 'blue',
+    offset: 'high',
   },
 ];
+
 
 const contactOptions = [
   {
@@ -191,6 +165,96 @@ function FounderAvatar({ variant }: { variant: number }) {
         </svg>
       </div>
     </div>
+  );
+}
+
+function ProcessSection() {
+  return (
+    <section className="process-section relative z-10 overflow-hidden px-5 pt-24 pb-20 sm:px-8 lg:px-10" id="vorgehen">
+      <div className="process-inner mx-auto max-w-[1480px]">
+        <header className="process-header mx-auto max-w-4xl text-center">
+          <p className="process-eyebrow text-sm font-semibold uppercase tracking-[0.28em] text-[#0b63f6]">
+            UNSER VORGEHEN
+          </p>
+          <h2 className="process-title mt-6 text-[clamp(44px,5vw,76px)] leading-[0.98] tracking-[-0.045em] font-bold text-[#081126]">
+            Von der Idee zur<br />produktiven Automatisierung.
+          </h2>
+          <p className="process-subtitle mx-auto mt-6 max-w-3xl text-[clamp(17px,1.3vw,22px)] leading-[1.55] text-[rgba(8,17,38,0.68)]">
+            Wir begleiten Sie strukturiert vom ersten Gespräch bis zur produktiven Lösung – pragmatisch, verständlich und nah am Arbeitsalltag.
+          </p>
+        </header>
+
+        <div className="process-flow relative mt-16 min-h-[420px]">
+          <svg
+            className="process-connector absolute left-1/2 top-0 h-60 w-full -translate-x-1/2 overflow-visible"
+            viewBox="0 0 1480 240"
+            preserveAspectRatio="none"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <defs>
+              <linearGradient id="processLineGradient" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stopColor="#0B63F6" />
+                <stop offset="35%" stopColor="#079B96" />
+                <stop offset="65%" stopColor="#0B63F6" />
+                <stop offset="100%" stopColor="#0B63F6" />
+              </linearGradient>
+            </defs>
+            <path
+              className="process-connector-path fill-none stroke-[url(#processLineGradient)] stroke-[2.2] stroke-linecap-round opacity-85"
+              d="M 20 142 C 160 92, 260 92, 380 142 S 620 192, 740 142 S 980 92, 1100 142 S 1320 192, 1460 142"
+            />
+          </svg>
+
+          <ol className="process-cards relative z-10 grid grid-cols-5 gap-6" aria-label="Unser Vorgehen in fünf Schritten">
+            {processFlowSteps.map((step) => {
+              const Icon = step.icon;
+              return (
+                <li
+                  key={step.number}
+                  className={`process-card-wrap ${step.offset === 'high' ? 'translate-y-0' : step.offset === 'mid' ? 'translate-y-7' : 'translate-y-[70px]'}`}
+                >
+                  <article className={`process-card relative min-h-[320px] rounded-[24px] border border-[rgba(8,17,38,0.08)] bg-[rgba(255,255,255,0.78)] p-8 shadow-[0_24px_70px_rgba(8,17,38,0.08)] backdrop-blur-[14px]`}>
+                    <div className={`process-number absolute -top-6 left-6 flex h-13 w-13 items-center justify-center rounded-full text-2xl font-bold text-white shadow-[0_12px_28px_rgba(11,99,246,0.28)] ${step.tone === 'teal' ? 'bg-gradient-to-br from-[#079b96] to-[#08766f] shadow-[0_12px_28px_rgba(7,155,150,0.24)]' : 'bg-gradient-to-br from-[#0b63f6] to-[#0047d8]'}`}>
+                      {step.number}
+                    </div>
+                    <div className={`process-icon-shell mx-auto mt-4 flex h-26 w-26 items-center justify-center rounded-full ${step.tone === 'teal' ? 'bg-[rgba(7,155,150,0.085)]' : 'bg-[rgba(11,99,246,0.075)]'}`}>
+                      <Icon className={`process-icon h-12 w-12 stroke-[1.8] ${step.tone === 'teal' ? 'text-[#079b96]' : 'text-[#0b63f6]'}`} aria-hidden="true" />
+                    </div>
+                    <h3 className="process-card-title mt-6 text-center text-[clamp(21px,1.4vw,26px)] leading-[1.15] tracking-[-0.025em] font-bold text-[#081126]">
+                      {step.title}
+                    </h3>
+                    <p className="process-card-description mt-4 text-center text-base leading-[1.55] text-[rgba(8,17,38,0.68)]">
+                      {step.description}
+                    </p>
+                  </article>
+                </li>
+              );
+            })}
+          </ol>
+
+          <div className="process-arrow-end absolute -right-2 bottom-[118px] z-20 flex h-14 w-14 items-center justify-center rounded-full border-1.5 border-[rgba(11,99,246,0.35)] bg-[rgba(255,255,255,0.82)] shadow-[0_12px_34px_rgba(8,17,38,0.08)] backdrop-blur-[12px]" aria-hidden="true">
+            <ArrowRight size={30} strokeWidth={1.8} />
+          </div>
+        </div>
+
+        <div className="process-cta-bar mx-auto mt-16 max-w-[1080px] rounded-[22px] border border-[rgba(8,17,38,0.08)] bg-[rgba(255,255,255,0.78)] p-6 shadow-[0_24px_70px_rgba(8,17,38,0.08)] backdrop-blur-[14px] sm:p-8 lg:flex lg:items-center lg:gap-6">
+          <div className="process-cta-copy flex items-center gap-6 lg:flex-1">
+            <div className="process-cta-icon flex h-17 w-17 items-center justify-center rounded-full bg-[rgba(11,99,246,0.075)]">
+              <ShieldCheck size={36} strokeWidth={1.8} aria-hidden="true" />
+            </div>
+            <p className="process-cta-text max-w-[560px] text-[clamp(18px,1.4vw,24px)] leading-[1.25] font-bold tracking-[-0.025em] text-[#081126]">
+              Strukturiert, nachvollziehbar und auf Ihre bestehende Systemlandschaft abgestimmt.
+            </p>
+          </div>
+          <div className="process-cta-divider hidden h-14 w-px bg-[rgba(8,17,38,0.12)] lg:block" />
+          <a href="#kontakt" className="process-cta-button inline-flex min-w-[300px] items-center justify-center gap-3 rounded-[12px] bg-gradient-to-br from-[#0b63f6] to-[#0047d8] px-6 py-4 text-sm font-bold text-white shadow-[0_16px_36px_rgba(11,99,246,0.25)] transition hover:bg-[#0047d8] sm:min-w-[320px] lg:min-w-[300px] lg:flex-shrink-0">
+            Erstgespräch vereinbaren
+            <ArrowRight size={24} strokeWidth={1.9} aria-hidden="true" />
+          </a>
+        </div>
+      </div>
+    </section>
   );
 }
 
@@ -332,7 +396,17 @@ function EmailCommunicationGraphic() {
   );
 }
 
-function UseCaseCard({ number, title, description, bullets, resultText, graphic, resultIcon }: any) {
+interface UseCaseCardProps {
+  number: string;
+  title: string;
+  description: string;
+  bullets: string[];
+  resultText: string;
+  graphic: 'microsoft' | 'data-ai' | 'email';
+  resultIcon: string;
+}
+
+function UseCaseCard({ number, title, description, bullets, resultText, graphic, resultIcon }: UseCaseCardProps) {
   const ResultIcon = resultIcon === 'BarChart3' ? BarChart3 : resultIcon === 'Shield' ? Shield : UserCheck;
   return (
     <article className="relative overflow-hidden rounded-[28px] border border-slate-200/80 bg-white/85 p-8 shadow-[0_20px_60px_rgba(15,23,42,0.08)] backdrop-blur-xl flex flex-col h-full">
@@ -385,92 +459,124 @@ export default function Home() {
           priority
         />
         <div className="absolute inset-0 bg-[linear-gradient(180deg,_rgba(255,255,255,0.14),_rgba(248,250,249,0.35)_60%,_rgba(255,255,255,0.55))]" />
-        <div className="absolute inset-0 hidden lg:block" aria-hidden="true">
-          <div className="absolute left-[8%] top-[18%] flex h-15 w-15 items-center justify-center rounded-full border border-white/80 bg-[rgba(47,111,115,0.94)] text-white shadow-[0_18px_38px_rgba(47,111,115,0.22)]">
-            ▥
+          <div className="absolute inset-0 hidden lg:block" aria-hidden="true">
+          <div className="hero-badge hero-badge-doc absolute left-[8%] top-[18%]">
+            <svg viewBox="0 0 64 64" className="hero-badge-icon" aria-hidden="true">
+              <path d="M20 10h22l10 10v28a6 6 0 0 1-6 6H20a6 6 0 0 1-6-6V16a6 6 0 0 1 6-6z" />
+              <path d="M42 10v12h10" />
+              <path d="M22 28h20" />
+              <path d="M22 36h20" />
+              <path d="M22 44h20" />
+              <path d="M28 28v16" />
+              <path d="M36 28v16" />
+            </svg>
           </div>
-          <div className="absolute left-[22%] bottom-[15%] flex h-15 w-15 items-center justify-center rounded-full border border-white/80 bg-[rgba(18,49,86,0.96)] text-white shadow-[0_18px_38px_rgba(18,49,86,0.2)]">
-            ▤
+          <div className="hero-badge hero-badge-workflow absolute left-[18%] bottom-[16%]">
+            <svg viewBox="0 0 64 64" className="hero-badge-icon" aria-hidden="true">
+              <rect x="10" y="14" width="16" height="12" rx="3" />
+              <rect x="38" y="14" width="16" height="12" rx="3" />
+              <rect x="24" y="38" width="16" height="12" rx="3" />
+              <path d="M26 20h12" />
+              <path d="M32 26v8" />
+              <path d="M32 34h8" />
+              <path d="M40 34l-3-3" />
+              <path d="M40 34l-3 3" />
+            </svg>
           </div>
-          <div className="absolute right-[24%] top-[28%] flex h-13 w-13 items-center justify-center rounded-full border border-white/80 bg-white/96 text-[var(--accent)] shadow-[0_16px_32px_rgba(15,34,48,0.12)]">
-            ○
+          <div className="hero-badge hero-badge-email absolute right-[16%] top-[28%]">
+            <svg viewBox="0 0 64 64" className="hero-badge-icon" aria-hidden="true">
+              <rect x="12" y="18" width="40" height="26" rx="5" />
+              <path d="M12 20l20 15 20-15" />
+              <path d="M21 32l-9 12" />
+              <path d="M43 32l9 12" />
+              <circle cx="46" cy="18" r="6.5" />
+              <path d="M46 14.5v1.7" />
+              <path d="M46 19.8v1.7" />
+              <path d="M42.5 18h1.7" />
+              <path d="M47.8 18h1.7" />
+              <path d="M43.6 15.6l1.2 1.2" />
+              <path d="M47.2 19.2l1.2 1.2" />
+              <path d="M48.4 15.6l-1.2 1.2" />
+              <path d="M44.8 19.2l-1.2 1.2" />
+            </svg>
           </div>
-          <div className="absolute right-[10%] top-[52%] flex h-15 w-15 items-center justify-center rounded-full border border-white/80 bg-[rgba(18,49,86,0.96)] text-white shadow-[0_18px_38px_rgba(18,49,86,0.2)]">
-            ▤
-          </div>
-          <div className="absolute right-[18%] bottom-[10%] flex h-15 w-15 items-center justify-center rounded-full border border-white/80 bg-[rgba(196,229,218,0.96)] text-[var(--accent)] shadow-[0_18px_38px_rgba(47,111,115,0.12)]">
-            ⚙
+          <div className="hero-badge hero-badge-ai absolute right-[18%] bottom-[10%]">
+            <svg viewBox="0 0 64 64" className="hero-badge-icon" aria-hidden="true">
+              <circle cx="28" cy="31" r="10" />
+              <path d="M35.5 38.5L46 49" />
+              <path d="M44 15v7" />
+              <path d="M40.5 18.5h7" />
+              <path d="M18 16.5v4.5" />
+              <path d="M15.75 18.75h4.5" />
+              <path d="M46 28.5v3.5" />
+              <path d="M44.25 30.25h3.5" />
+            </svg>
           </div>
         </div>
       </div>
 
       <section className="relative min-h-screen px-5 pt-5 sm:px-8 lg:px-10">
         <div className="mx-auto max-w-7xl">
-          <header className="mb-10 flex flex-col gap-5 rounded-[1.8rem] border border-[rgba(15,34,48,0.06)] bg-white/84 px-5 py-4 shadow-[0_10px_24px_rgba(15,34,48,0.04)] backdrop-blur lg:flex-row lg:items-center lg:justify-between">
-            <div className="flex items-center gap-4">
-              <div className="flex h-12 items-center overflow-hidden rounded-[1rem] bg-white">
-                <Image
-                  src="/recura-assets/recura-logo.jpg"
-                  alt="Recura Logo"
-                  width={160}
-                  height={48}
-                  className="h-12 w-auto object-contain"
-                />
+          <SiteHeader />
+
+          <div className="hero-section relative z-10 flex min-h-svh items-center justify-center px-5 py-24 sm:px-8 lg:px-18">
+            <div className="hero-content mx-auto w-[min(92vw,1120px)] xl:w-[min(88vw,1280px)] text-center flex flex-col items-center">
+              <p className="hero-eyebrow text-sm font-semibold uppercase tracking-[0.38em] text-[#1f6f73] mb-7">
+                RECURA PROCESS AUTOMATION
+              </p>
+              <h1 className="hero-title mt-0 font-bold text-[#071528]" aria-label="KI-gestützte Automatisierung für Büroprozesse im Mittelstand.">
+                <span className="title-sm" aria-hidden="true">
+                  KI-gestützte<br />
+                  Automatisierung<br />
+                  für Büroprozesse<br />
+                  im Mittelstand.
+                </span>
+                <span className="title-md" aria-hidden="true">
+                  KI-gestützte<br />
+                  Automatisierung für<br />
+                  Büroprozesse im<br />
+                  Mittelstand.
+                </span>
+                <span className="title-xl" aria-hidden="true">
+                  KI-gestützte Automatisierung für<br />
+                  Büroprozesse im Mittelstand.
+                </span>
+                <span className="title-2xl" aria-hidden="true">
+                  KI-gestützte Automatisierung<br />
+                  für Büroprozesse im Mittelstand.
+                </span>
+              </h1>
+              <p className="hero-subtitle mt-9 max-w-[760px] leading-[1.55] text-[rgba(7,21,40,0.72)]">
+                Wir analysieren, automatisieren und optimieren administrative Prozesse, pragmatisch, sicher und messbar.
+              </p>
+
+              <div className="hero-actions mt-11 flex flex-wrap items-center justify-center gap-4">
+                <a
+                  href="#kontakt"
+                  style={{ color: '#fff' }}
+                  className="hero-button hero-button-primary inline-flex items-center justify-center gap-2 rounded-[14px] bg-[#0f5b5e] px-8 py-4 text-white font-semibold shadow-[0_14px_34px_rgba(15,91,94,0.18)] transition hover:bg-[#0a4a4d]"
+                >
+                  Erstgespräch vereinbaren →
+                </a>
+                <a
+                  href="#leistungen"
+                  className="hero-button hero-button-secondary inline-flex items-center justify-center gap-2 rounded-[14px] border border-[rgba(7,21,40,0.14)] bg-[rgba(255,255,255,0.72)] px-8 py-4 text-[#071528] font-semibold backdrop-blur-[10px] transition hover:border-[#1f6f73] hover:text-[#1f6f73]"
+                >
+                  Leistungen ansehen →
+                </a>
+              </div>
+
+              <div className="hero-location-pill mt-6 inline-flex items-center justify-center rounded-full border border-[rgba(7,21,40,0.08)] bg-[rgba(255,255,255,0.72)] px-5 py-2 text-[rgba(7,21,40,0.62)] backdrop-blur-[10px]">
+                Düsseldorf / Mönchengladbach / NRW
               </div>
             </div>
-
-            <nav className="flex flex-wrap items-center gap-5 text-sm text-[var(--muted-foreground)]">
-              {navigation.map((item) => (
-                <a key={item.href} href={item.href} className="transition hover:text-[var(--foreground)] hover:opacity-100">
-                  {item.label}
-                </a>
-              ))}
-              <a
-                href="#kontakt"
-                className="rounded-[0.95rem] bg-[var(--accent)] px-5 py-3 font-medium text-white! shadow-[0_14px_28px_rgba(47,111,115,0.24)] transition hover:bg-[var(--accent-strong)] hover:text-white!"
-              >
-                Erstgespräch vereinbaren →
-              </a>
-            </nav>
-          </header>
-
-          <div className="relative mx-auto flex min-h-[760px] max-w-4xl flex-col items-center justify-center px-4 pb-8 pt-18 text-center sm:pt-24 lg:min-h-[860px]">
-            <p className="text-sm font-medium uppercase tracking-[0.32em] text-[var(--accent)]">
-              RECURA PROCESS AUTOMATION
-            </p>
-            <h1 className="mt-7 max-w-4xl text-5xl font-semibold leading-[0.98] tracking-[-0.07em] text-[var(--hero-title)] sm:text-6xl lg:text-[5.4rem]">
-              KI-gestützte Automatisierung für Büroprozesse im Mittelstand.
-            </h1>
-            <p className="mt-7 max-w-2xl text-lg leading-8 text-[var(--muted-foreground)] sm:text-[1.24rem]">
-              Wir analysieren, automatisieren und optimieren administrative Prozesse, pragmatisch, sicher und messbar.
-            </p>
-
-            <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-center">
-              <a
-                href="#kontakt"
-                className="rounded-[1rem] bg-[var(--accent)] px-7 py-4 text-center text-base font-medium text-white! shadow-[0_16px_32px_rgba(47,111,115,0.24)] transition hover:bg-[var(--accent-strong)] hover:text-white!"
-              >
-                Erstgespräch vereinbaren →
-              </a>
-              <a
-                href="#leistungen"
-                className="rounded-[1rem] border border-[rgba(15,34,48,0.18)] bg-white/92 px-7 py-4 text-center text-base font-medium text-[var(--foreground)] transition hover:border-[var(--accent)] hover:text-[var(--accent)]"
-              >
-                Leistungen ansehen →
-              </a>
-            </div>
-
-            <div className="mt-8 inline-flex items-center rounded-full border border-[rgba(15,34,48,0.08)] bg-white/88 px-4 py-2 text-sm text-[var(--muted-foreground)] shadow-[0_10px_22px_rgba(15,34,48,0.04)] backdrop-blur">
-              Düsseldorf / Mönchengladbach / NRW
-            </div>
-
           </div>
         </div>
       </section>
 
-      <section className="relative z-10 py-24 px-6 lg:px-10">
+      <section id="leistungen" className="relative z-10 py-24 px-6 lg:px-10">
         <div className="mx-auto max-w-[1440px]">
-          <div className="text-center mb-14">
+          <div id="use-cases" className="text-center mb-14">
             <p className="text-sm font-semibold tracking-[0.28em] text-blue-600 uppercase">
               Lösungsbeispiele
             </p>
@@ -497,7 +603,7 @@ export default function Home() {
               </p>
             </div>
             <div className="hidden h-16 w-px bg-slate-200 lg:block" />
-            <a className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-base font-semibold text-blue-600 hover:text-blue-700">
+            <a href="#vorgehen" className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-base font-semibold text-blue-600 hover:text-blue-700">
               Mehr über unser Vorgehen
               <ArrowRight className="h-5 w-5" />
             </a>
@@ -596,65 +702,10 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="mt-8 rounded-[1.5rem] border border-slate-200/80 bg-white/90 p-6 shadow-[0_18px_48px_rgba(15,23,42,0.08)] backdrop-blur-lg sm:p-8">
-            <div className="grid gap-6 lg:grid-cols-[auto_minmax(0,1fr)_1px_auto] lg:items-center">
-              <div className="promise-icon-wrap flex h-20 w-20 items-center justify-center rounded-full border border-[#126DFF]/15 bg-[#126DFF]/10 text-[#07152F]">
-                <Heart className="h-7 w-7" />
-              </div>
-              <div className="promise-copy">
-                <h3 className="text-2xl font-semibold text-slate-950">Unser Versprechen</h3>
-                <p className="mt-4 max-w-2xl text-base leading-7 text-slate-600">
-                  Wir hören zu, denken mit und liefern Lösungen, die funktionieren —<br className="hidden sm:inline" />
-                  nicht nur heute, sondern auch morgen.
-                </p>
-              </div>
-              <div className="hidden h-20 w-px bg-slate-200 lg:block" />
-              <a
-                href="#kontakt"
-                className="inline-flex min-w-[260px] items-center justify-center gap-3 rounded-2xl bg-[#126DFF] px-6 py-4 text-sm font-semibold text-white shadow-[0_16px_32px_rgba(18,109,255,0.24)] transition hover:bg-[#0C4A9C] sm:min-w-[320px] lg:min-w-[260px]"
-              >
-                Erstgespräch vereinbaren
-                <ArrowRight className="h-4 w-4" />
-              </a>
-            </div>
-          </div>
         </div>
       </section>
 
-      <section className="px-5 pt-18 sm:px-8 lg:px-10">
-        <div className="mx-auto max-w-7xl overflow-hidden rounded-[2.15rem] border border-[var(--line)] bg-[linear-gradient(135deg,_rgba(47,111,115,0.1),_rgba(255,255,255,0.96))] p-6 shadow-[var(--shadow)] sm:p-8 lg:p-10">
-          <div className="grid gap-10 lg:grid-cols-[1.02fr_0.98fr] lg:items-center">
-            <div>
-              <p className="text-sm uppercase tracking-[0.22em] text-[var(--accent)]">Unser Vorgehen</p>
-              <h2 className="mt-4 text-3xl font-semibold tracking-[-0.04em] text-[var(--foreground)] sm:text-[2.6rem]">
-                Klarer Ablauf von der ersten Analyse bis zum produktiven Einsatz.
-              </h2>
-              <p className="mt-5 text-lg leading-8 text-[var(--muted-foreground)]">
-                Wir arbeiten strukturiert, damit Anforderungen, Umsetzung und Einführung nicht auseinanderlaufen. So entstehen Lösungen, die technisch sauber und operativ tragfähig sind.
-              </p>
-            </div>
-            <div className="overflow-hidden rounded-[1.85rem] border border-[var(--line)] bg-white shadow-[0_14px_34px_rgba(22,44,56,0.06)]">
-              <Image
-                src="/recura-assets/process-mockup.jpg"
-                alt="Mockup für den Vorgehensbereich von Recura"
-                width={1280}
-                height={720}
-                className="h-auto w-full object-cover"
-              />
-            </div>
-          </div>
-
-          <div className="mt-10 grid gap-4 lg:grid-cols-5">
-            {processSteps.map((item) => (
-              <article key={item.step} className="rounded-[1.55rem] border border-[var(--line)] bg-white/90 p-5 backdrop-blur transition hover:-translate-y-1">
-                <p className="text-sm font-semibold text-[var(--accent)]">{item.step}</p>
-                <h3 className="mt-3 text-xl font-semibold tracking-[-0.03em] text-[var(--foreground)]">{item.title}</h3>
-                <p className="mt-3 text-sm leading-7 text-[var(--muted-foreground)]">{item.text}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+      <ProcessSection />
 
       <section id="kontakt" className="px-5 pt-18 sm:px-8 lg:px-10">
         <div className="mx-auto max-w-7xl rounded-[2.15rem] border border-[var(--line)] bg-[var(--card)] p-6 shadow-[var(--shadow)] sm:p-8 lg:p-10">
